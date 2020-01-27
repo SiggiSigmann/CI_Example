@@ -1,0 +1,22 @@
+name: Ci
+
+# This workflow is triggered on pushes to the repository.
+on: [push]
+
+
+jobs:
+  build:
+    # Job name is Greeting
+    name: Tests
+    # This job runs only on selfhosted runners
+    runs-on: self-hosted
+
+    steps:
+      #checkout current version 
+      - name: checkout
+        uses: actions/checkout@v1
+
+      #executes unittests
+      - name: unittests
+        run: python -m unittest -v TestClass
+        
